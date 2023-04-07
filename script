@@ -10,6 +10,7 @@ local Skryptpsx2 = Instance.new("TextButton")
 local TextLabel = Instance.new("TextLabel")
 local TextLabel_2 = Instance.new("TextLabel")
 local TextLabel_3 = Instance.new("TextLabel")
+local TextButton = Instance.new("TextButton")
 
 --Properties:
 
@@ -38,6 +39,7 @@ Skryptpsx1.MouseButton1Down:connect(function()
 	loadstring(game:HttpGet(("https://milkup.info/script/PetSimulatorX/"),true))()
 end)
 
+
 Skryptpsx2.Name = "Skrypt psx 2"
 Skryptpsx2.Parent = Frame
 Skryptpsx2.BackgroundColor3 = Color3.fromRGB(165, 165, 165)
@@ -60,7 +62,8 @@ TextLabel.Size = UDim2.new(0, 438, 0, 50)
 TextLabel.Font = Enum.Font.Unknown
 TextLabel.Text = "Script Made By Koczfa"
 TextLabel.TextColor3 = Color3.fromRGB(255, 255, 255)
-TextLabel.TextSize = 31.000
+TextLabel.TextSize = 25.000
+TextLabel.TextXAlignment = Enum.TextXAlignment.Left
 
 TextLabel_2.Parent = Frame
 TextLabel_2.BackgroundColor3 = Color3.fromRGB(107, 107, 107)
@@ -70,7 +73,7 @@ TextLabel_2.Size = UDim2.new(0, 200, 0, 50)
 TextLabel_2.Font = Enum.Font.Unknown
 TextLabel_2.Text = "Pet simulator X scripts"
 TextLabel_2.TextColor3 = Color3.fromRGB(0, 0, 0)
-TextLabel_2.TextSize = 21.000
+TextLabel_2.TextSize =15.000
 TextLabel_2.TextWrapped = true
 
 TextLabel_3.Parent = Frame
@@ -82,3 +85,24 @@ TextLabel_3.Font = Enum.Font.Unknown
 TextLabel_3.Text = "Code is \"RizzHubVisual\""
 TextLabel_3.TextColor3 = Color3.fromRGB(255, 255, 255)
 TextLabel_3.TextSize = 14.000
+
+TextButton.Parent = Frame
+TextButton.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+TextButton.Position = UDim2.new(0.844748855, 0, -0.0282258056, 0)
+TextButton.Size = UDim2.new(0, 68, 0, 50)
+TextButton.Font = Enum.Font.Unknown
+TextButton.Text = "X"
+TextButton.TextColor3 = Color3.fromRGB(255, 0, 4)
+TextButton.TextSize = 40.000
+
+-- Scripts:
+
+local function KCUIHIX_fake_script() -- TextButton.LocalScript 
+	local script = Instance.new('LocalScript', TextButton)
+
+	script.Parent.MouseButton1Click:Connect(function()
+		script.Parent.Parent.Visible = false
+	end)
+	
+end
+coroutine.wrap(KCUIHIX_fake_script)()
