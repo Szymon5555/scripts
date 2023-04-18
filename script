@@ -1,108 +1,107 @@
--- Gui to Lua
--- Version: 3.2
 
--- Instances:
+repeat
+    wait()
+until game:IsLoaded()
+local StarTime = tick()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/1201for/V.G-Hub/main/Extras/Anti-Cheat"))()
 
+local A = loadstring(game:HttpGet("https://raw.githubusercontent.com/1201for/V.G-Hub/main/V.G-Hub-Games-List"))()
+getgenv().Get =
+    setmetatable(
+    {},
+    {
+        __index = function(A, B)
+            return game:GetService(B)
+        end
+    }
+)
+local CoreGui = Get.CoreGui
+local StarterGui = Get.StarterGui
+local Lighting = Get.Lighting
+
+
+    
+
+local BlurEffect = Instance.new("BlurEffect")
+BlurEffect.Parent = Lighting
+BlurEffect.Size = 0
 local ScreenGui = Instance.new("ScreenGui")
-local Frame = Instance.new("Frame")
-local Skryptpsx1 = Instance.new("TextButton")
-local Skryptpsx2 = Instance.new("TextButton")
-local TextLabel = Instance.new("TextLabel")
-local TextLabel_2 = Instance.new("TextLabel")
-local TextLabel_3 = Instance.new("TextLabel")
-local TextButton = Instance.new("TextButton")
-
---Properties:
-
-ScreenGui.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
-ScreenGui.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
-ScreenGui.ResetOnSpawn = false
-
-Frame.Parent = ScreenGui
-Frame.BackgroundColor3 = Color3.fromRGB(107, 107, 107)
-Frame.Position = UDim2.new(0.216886118, 0, 0.320991874, 0)
-Frame.Size = UDim2.new(0, 438, 0, 248)
-Frame.Active = true
-Frame.Draggable = true
-
-Skryptpsx1.Name = "Skrypt psx 1"
-Skryptpsx1.Parent = Frame
-Skryptpsx1.BackgroundColor3 = Color3.fromRGB(165, 165, 165)
-Skryptpsx1.Position = UDim2.new(0.210045666, 0, 0.540322542, 0)
-Skryptpsx1.Size = UDim2.new(0, 106, 0, 50)
-Skryptpsx1.Modal = true
-Skryptpsx1.Font = Enum.Font.SourceSansBold
-Skryptpsx1.Text = "Auto farm"
-Skryptpsx1.TextColor3 = Color3.fromRGB(0, 0, 0)
-Skryptpsx1.TextSize = 14.000
-Skryptpsx1.MouseButton1Down:connect(function()
-	loadstring(game:HttpGet(("https://milkup.info/script/PetSimulatorX/"),true))()
-end)
-
-
-Skryptpsx2.Name = "Skrypt psx 2"
-Skryptpsx2.Parent = Frame
-Skryptpsx2.BackgroundColor3 = Color3.fromRGB(165, 165, 165)
-Skryptpsx2.Position = UDim2.new(0.547945201, 0, 0.540322542, 0)
-Skryptpsx2.Size = UDim2.new(0, 106, 0, 50)
-Skryptpsx2.Modal = true
-Skryptpsx2.Font = Enum.Font.SourceSansBold
-Skryptpsx2.Text = "Visual changer"
-Skryptpsx2.TextColor3 = Color3.fromRGB(0, 0, 0)
-Skryptpsx2.TextSize = 14.000
-Skryptpsx2.MouseButton1Down:connect(function()
-	loadstring(game:HttpGet(("https://raw.githubusercontent.com/Psx0/C/main/Visual"),true))()
-end)
-
-
-TextLabel.Parent = Frame
-TextLabel.BackgroundColor3 = Color3.fromRGB(35, 35, 35)
-TextLabel.Position = UDim2.new(0, 0, -0.0282258056, 0)
-TextLabel.Size = UDim2.new(0, 438, 0, 50)
-TextLabel.Font = Enum.Font.Unknown
-TextLabel.Text = "Script Made By Koczfa"
-TextLabel.TextColor3 = Color3.fromRGB(255, 255, 255)
-TextLabel.TextSize = 25.000
-TextLabel.TextXAlignment = Enum.TextXAlignment.Left
-
-TextLabel_2.Parent = Frame
-TextLabel_2.BackgroundColor3 = Color3.fromRGB(107, 107, 107)
-TextLabel_2.BorderColor3 = Color3.fromRGB(107, 107, 107)
-TextLabel_2.Position = UDim2.new(0.271689504, 0, 0.254032254, 0)
-TextLabel_2.Size = UDim2.new(0, 200, 0, 50)
-TextLabel_2.Font = Enum.Font.Unknown
-TextLabel_2.Text = "Pet simulator X scripts"
-TextLabel_2.TextColor3 = Color3.fromRGB(0, 0, 0)
-TextLabel_2.TextSize =15.000
-TextLabel_2.TextWrapped = true
-
-TextLabel_3.Parent = Frame
-TextLabel_3.BackgroundColor3 = Color3.fromRGB(107, 107, 107)
-TextLabel_3.BorderColor3 = Color3.fromRGB(107, 107, 107)
-TextLabel_3.Position = UDim2.new(0.401826501, 0, 0.770161271, 0)
-TextLabel_3.Size = UDim2.new(0, 86, 0, 50)
-TextLabel_3.Font = Enum.Font.Unknown
-TextLabel_3.Text = "Code is \"RizzHubVisual\""
-TextLabel_3.TextColor3 = Color3.fromRGB(255, 255, 255)
-TextLabel_3.TextSize = 14.000
-
-TextButton.Parent = Frame
-TextButton.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
-TextButton.Position = UDim2.new(0.844748855, 0, -0.0282258056, 0)
-TextButton.Size = UDim2.new(0, 68, 0, 50)
-TextButton.Font = Enum.Font.Unknown
-TextButton.Text = "X"
-TextButton.TextColor3 = Color3.fromRGB(255, 0, 4)
-TextButton.TextSize = 40.000
-
--- Scripts:
-
-local function KCUIHIX_fake_script() -- TextButton.LocalScript 
-	local script = Instance.new('LocalScript', TextButton)
-
-	script.Parent.MouseButton1Click:Connect(function()
-		script.Parent.Parent.Visible = false
-	end)
-	
+if syn and syn.protect_gui then
+    syn.protect_gui(ScreenGui)
+    ScreenGui.Parent = CoreGui
+elseif gethui then
+    ScreenGui.Parent = gethui()
+else
+    ScreenGui.Parent = CoreGui
 end
-coroutine.wrap(KCUIHIX_fake_script)()
+local ImageLabel = Instance.new("ImageLabel")
+ScreenGui.Parent = CoreGui
+ImageLabel.Parent = ScreenGui
+ImageLabel.BackgroundColor3 = Color3.new(1, 1, 1)
+ImageLabel.BackgroundTransparency = 1
+ImageLabel.Position = UDim2.new(0.5, -(303 / 2), 0.5, -(263 / 2))
+ImageLabel.Rotation = 0
+ImageLabel.Size = UDim2.new(0, 303, 0, 263)
+ImageLabel.Image = "rbxassetid://8429081004"
+ImageLabel.ImageTransparency = 1
+for Index = 1, 50, 2 do
+    BlurEffect.Size = Index
+    ImageLabel.ImageTransparency = ImageLabel.ImageTransparency - 0.1
+    wait()
+end
+wait(0.1)
+ImageLabel:TweenPosition(UDim2.new(0.5, 342 / 1, 0.5, 263 / 2, Enum.EasingDirection.Out, Enum.EasingStyle.Quint, 0.5))
+wait(0.1)
+for Index = 1, 50, 2 do
+    BlurEffect.Size = 50 - Index
+    ImageLabel.ImageTransparency = ImageLabel.ImageTransparency + 0.1
+    wait()
+end
+BlurEffect:Destroy()
+ScreenGui:Destroy()
+
+local queue_on_teleport =
+    queue_on_teleport or
+    syn and
+        syn.queue_on_teleport [[
+       repeat wait() until game:IsLoaded() wait(5) print("ServerHoped or rejoined")
+       loadstring(game:HttpGet('https://raw.githubusercontent.com/1201for/littlegui/main/V.G-Hubs-Source'))()]]
+
+for i, v in pairs(Games) do
+    if i == game.PlaceId then
+        loadstring(game:HttpGet(v))()
+    end
+end
+
+for i, v in pairs(Unknown) do
+    loadstring(game:HttpGet(v))()
+end
+
+SendNotification("Warning", "RightControl to toggle if the gui does not show up then the game is not supported please try again later or never if the game is supported the gui will pop up reguardless GOOD DAY!", "rbxassetid://8429081004", 5)
+SendNotification("Credits", "Koczfa, MrMercer", "rbxassetid://8429081004", 5)
+
+
+local function Copy()
+    setclipboard("https://discord.gg/xxKReuYzdp")
+end
+local Gang = Instance.new("BindableFunction")
+
+function Gang.OnInvoke(v)
+    if v == "Yes" then
+        Copy()
+        SendNotification("Discord", "Discord Link Copying Sucessful", "rbxassetid://8429081004", 15)
+    end
+end
+StarterGui:SetCore(
+    "SendNotification",
+    {
+        Title = "V.G Hub Discord",
+        Text = "Copy to clipboard?",
+        Duration = 5,
+        Callback = Gang,
+        Button1 = "Yes",
+        Button2 = "No"
+    }
+)
+local EndTime = tick()
+print("V.G Hub Took ", StarTime - EndTime, " To Load")
